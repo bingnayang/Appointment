@@ -1,13 +1,14 @@
 package com.company;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Appointment {
     private String schedulerName;
     private String customerName;
     private String customerPhoneNumber;
-    private Date dateCreated;
-    private Date appointmentDateTime;
+    private String dateCreated;
+    private String appointmentDateTime;
     private String appointmentStatus;
     private int numberOfPeopleVisit;
 
@@ -15,7 +16,7 @@ public class Appointment {
         this.customerName = customerName;
     }
 
-    public Appointment(String schedulerName, String customerName, String customerPhoneNumber, Date dateCreated, Date appointmentDateTime, String appointmentStatus, int numberOfPeopleVisit) {
+    public Appointment(String schedulerName, String customerName, String customerPhoneNumber, String dateCreated, String appointmentDateTime, String appointmentStatus, int numberOfPeopleVisit) {
         this.schedulerName = schedulerName;
         this.customerName = customerName;
         this.customerPhoneNumber = customerPhoneNumber;
@@ -49,19 +50,19 @@ public class Appointment {
         this.customerPhoneNumber = customerPhoneNumber;
     }
 
-    public Date getDateCreated() {
+    public String getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
     }
 
-    public Date getAppointmentDateTime() {
+    public String getAppointmentDateTime() {
         return appointmentDateTime;
     }
 
-    public void setAppointmentDateTime(Date appointmentDateTime) {
+    public void setAppointmentDateTime(String appointmentDateTime) {
         this.appointmentDateTime = appointmentDateTime;
     }
 
@@ -81,7 +82,7 @@ public class Appointment {
         this.numberOfPeopleVisit = numberOfPeopleVisit;
     }
 
-    public static Appointment bookAppointment(String schedulerName, String customerName, String customerPhoneNumber, Date dateCreated, Date appointmentDateTime, String appointmentStatus, int numberOfPeopleVisit){
+    public static Appointment bookAppointment(String schedulerName, String customerName, String customerPhoneNumber, String dateCreated, String appointmentDateTime, String appointmentStatus, int numberOfPeopleVisit){
         return new Appointment(schedulerName,customerName,customerPhoneNumber,dateCreated,appointmentDateTime,appointmentStatus,numberOfPeopleVisit);
     }
 
