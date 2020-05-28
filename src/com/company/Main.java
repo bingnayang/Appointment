@@ -24,7 +24,7 @@ public class Main {
         Appointment newAppointment1 = Appointment.bookAppointment("John","Sam York","213-324-5566",dateFormat.format(createdDate), appointmentDate, appointmentTime,"arrived",4);
         Appointment newAppointment2 = Appointment.bookAppointment("John","Winsley Horan","213-789-3454",dateFormat.format(createdDate), appointmentDate1, appointmentTime1,"cancel",5);
         Appointment newAppointment3 = Appointment.bookAppointment("Tim","Danny Oska","271-342-4432",dateFormat.format(createdDate), appointmentDate, appointmentTime,"scheduled",5);
-        Appointment newAppointment4 = Appointment.bookAppointment("Elina","Joy Nathon","271-342-4432",dateFormat.format(createdDate), appointmentDate, appointmentTime,"scheduled",8);
+        Appointment newAppointment4 = Appointment.bookAppointment("Elina","Joy Nathon","271-342-3423",dateFormat.format(createdDate), appointmentDate, appointmentTime,"scheduled",8);
 
         apptSystem.addNewAppointment(newAppointment1);
         apptSystem.addNewAppointment(newAppointment2);

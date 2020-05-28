@@ -10,7 +10,7 @@ public class TheSystem {
     }
 
     public boolean addNewAppointment(Appointment appointment){
-        if(findAppointment(appointment.getCustomerPhoneNumber()) >= 0){
+        if(findAppointment(appointment.getCustomerPhoneNumber()) >= 0 && appointment.getAppointmentStatus() == "scheduled"){
             System.out.println("This appointment is already on system");
             return false;
         }
