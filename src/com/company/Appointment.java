@@ -1,6 +1,8 @@
 package com.company;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class Appointment {
@@ -8,7 +10,8 @@ public class Appointment {
     private String customerName;
     private String customerPhoneNumber;
     private String dateCreated;
-    private String appointmentDateTime;
+    private LocalDate appointmentDate;
+    private LocalTime appointmentTime;
     private String appointmentStatus;
     private int numberOfPeopleVisit;
 
@@ -16,12 +19,13 @@ public class Appointment {
         this.customerName = customerName;
     }
 
-    public Appointment(String schedulerName, String customerName, String customerPhoneNumber, String dateCreated, String appointmentDateTime, String appointmentStatus, int numberOfPeopleVisit) {
+    public Appointment(String schedulerName, String customerName, String customerPhoneNumber, String dateCreated, LocalDate appointmentDate, LocalTime appointmentTime, String appointmentStatus, int numberOfPeopleVisit) {
         this.schedulerName = schedulerName;
         this.customerName = customerName;
         this.customerPhoneNumber = customerPhoneNumber;
         this.dateCreated = dateCreated;
-        this.appointmentDateTime = appointmentDateTime;
+        this.appointmentDate = appointmentDate;
+        this.appointmentTime = appointmentTime;
         this.appointmentStatus = appointmentStatus;
         this.numberOfPeopleVisit = numberOfPeopleVisit;
     }
@@ -58,12 +62,20 @@ public class Appointment {
         this.dateCreated = dateCreated;
     }
 
-    public String getAppointmentDateTime() {
-        return appointmentDateTime;
+    public LocalDate getAppointmentDate() {
+        return appointmentDate;
     }
 
-    public void setAppointmentDateTime(String appointmentDateTime) {
-        this.appointmentDateTime = appointmentDateTime;
+    public void setAppointmentDate(LocalDate appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
+
+    public LocalTime getAppointmentTime() {
+        return appointmentTime;
+    }
+
+    public void setAppointmentTime(LocalTime appointmentTime) {
+        this.appointmentTime = appointmentTime;
     }
 
     public String getAppointmentStatus() {
@@ -82,8 +94,8 @@ public class Appointment {
         this.numberOfPeopleVisit = numberOfPeopleVisit;
     }
 
-    public static Appointment bookAppointment(String schedulerName, String customerName, String customerPhoneNumber, String dateCreated, String appointmentDateTime, String appointmentStatus, int numberOfPeopleVisit){
-        return new Appointment(schedulerName,customerName,customerPhoneNumber,dateCreated,appointmentDateTime,appointmentStatus,numberOfPeopleVisit);
+    public static Appointment bookAppointment(String schedulerName, String customerName, String customerPhoneNumber, String dateCreated, LocalDate appointmentDate, LocalTime appointmentTime, String appointmentStatus, int numberOfPeopleVisit){
+        return new Appointment(schedulerName,customerName,customerPhoneNumber,dateCreated,appointmentDate, appointmentTime,appointmentStatus,numberOfPeopleVisit);
     }
 
 }
