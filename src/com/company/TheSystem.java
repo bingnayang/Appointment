@@ -9,6 +9,11 @@ public class TheSystem {
         this.theAppointment = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param appointment
+     * @return
+     */
     public boolean addNewAppointment(Appointment appointment){
         if(findAppointment(appointment.getCustomerPhoneNumber()) >= 0 && appointment.getAppointmentStatus() == "scheduled"){
             System.out.println("This appointment is already on system");
@@ -18,6 +23,31 @@ public class TheSystem {
         return true;
     }
 
+    public boolean deleteAppointment(Appointment appointment){
+        int foundPosition = findAppointment(appointment);
+        if(foundPosition < 0){
+            System.out.println(appointment.getCustomerPhoneNumber() +": Not Found");
+            return false;
+        }
+        this.theAppointment.remove(foundPosition);
+        System.out.println(appointment.getCustomerPhoneNumber()+": Deleted");
+        return true;
+    }
+
+    /**
+     *
+     * @param appointment
+     * @return
+     */
+    private int findAppointment(Appointment appointment){
+        return this.theAppointment.indexOf(appointment);
+    }
+
+    /**
+     *
+     * @param phoneNumber
+     * @return
+     */
     private int findAppointment(String phoneNumber){
         for (int i = 0; i < this.theAppointment.size(); i++) {
             Appointment appt = this.theAppointment.get(i);
@@ -28,6 +58,9 @@ public class TheSystem {
         return -1;
     }
 
+    /**
+     * Print out the Appointment list 
+     */
     public void printAppointmentList(){
         System.out.println("Appointment List:\n");
         for(int i=0; i<this.theAppointment.size(); i++){

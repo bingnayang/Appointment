@@ -26,10 +26,14 @@ public class Main {
         Appointment newAppointment3 = Appointment.bookAppointment("Tim","Danny Oska","271-342-4432",dateFormat.format(createdDate), appointmentDate, appointmentTime,"scheduled",5);
         Appointment newAppointment4 = Appointment.bookAppointment("Elina","Joy Nathon","271-342-3423",dateFormat.format(createdDate), appointmentDate, appointmentTime,"scheduled",8);
 
+        // Add new appointment
         apptSystem.addNewAppointment(newAppointment1);
         apptSystem.addNewAppointment(newAppointment2);
         apptSystem.addNewAppointment(newAppointment3);
         apptSystem.addNewAppointment(newAppointment4);
+
+        // Remove an appointment
+
 
         // Print out the appointment list
         apptSystem.printAppointmentList();
