@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class TheSystem {
     private ArrayList<Appointment> theAppointment;
 
+    /**
+     * 
+     */
     public TheSystem() {
         this.theAppointment = new ArrayList<>();
     }
@@ -23,6 +26,11 @@ public class TheSystem {
         return true;
     }
 
+    /**
+     *
+     * @param appointment
+     * @return
+     */
     public boolean deleteAppointment(Appointment appointment){
         int foundPosition = findAppointment(appointment);
         if(foundPosition < 0){
@@ -32,6 +40,32 @@ public class TheSystem {
         this.theAppointment.remove(foundPosition);
         System.out.println(appointment.getCustomerPhoneNumber()+": Deleted");
         return true;
+    }
+
+    /**
+     *
+     * @param appointment
+     * @return
+     */
+    public String queryAppointment(Appointment appointment) {
+        if (findAppointment(appointment) >= 0) {
+            return appointment.getCustomerPhoneNumber();
+        }
+        return null;
+    }
+
+    /**
+     *
+     * @param phone
+     * @return
+     */
+    public Appointment queryAppointment(String phone) {
+        int position = findAppointment(phone);
+        if (position >= 0) {
+            return this.theAppointment.get(position);
+        }
+
+        return null;
     }
 
     /**

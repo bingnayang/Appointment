@@ -33,7 +33,7 @@ public class Main {
         apptSystem.addNewAppointment(newAppointment4);
 
         // Remove an appointment
-
+        apptSystem.deleteAppointment(newAppointment1);
 
         // Print out the appointment list
         apptSystem.printAppointmentList();
