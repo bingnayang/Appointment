@@ -35,6 +35,9 @@ public class Main {
         // Remove an appointment
         apptSystem.deleteAppointment(newAppointment1);
 
+        // Update an appointment
+
+
         // Print out the appointment list
         apptSystem.printAppointmentList();
     }
@@ -47,5 +50,13 @@ public class Main {
         System.out.println("Welcome to Family Restaurant Appointment System");
         System.out.println("Today Date and Time: "+formatted);
         System.out.println("===============================================");
+    }
+
+    public static void menuOptions(){
+        System.out.println("Available Options: ");
+        System.out.println("1:\t Add New Appointment");
+        System.out.println("2:\t Update an Appointment");
+        System.out.println("3:\t Remove an Appointment");
+        System.out.println("4:\t Print All Appointment");
     }
 }
