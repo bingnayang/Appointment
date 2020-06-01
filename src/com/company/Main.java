@@ -20,26 +20,45 @@ public class Main {
         LocalDate appointmentDate1 = LocalDate.of(2020,6,4);
         LocalTime appointmentTime1 = LocalTime.of(6,00);
 
+        // Print starting message and print menu options
         startMessage();
+        menuOptions();
+
+
         Appointment newAppointment1 = Appointment.bookAppointment("John","Sam York","213-324-5566",dateFormat.format(createdDate), appointmentDate, appointmentTime,"arrived",4);
         Appointment newAppointment2 = Appointment.bookAppointment("John","Winsley Horan","213-789-3454",dateFormat.format(createdDate), appointmentDate1, appointmentTime1,"cancel",5);
         Appointment newAppointment3 = Appointment.bookAppointment("Tim","Danny Oska","271-342-4432",dateFormat.format(createdDate), appointmentDate, appointmentTime,"scheduled",5);
         Appointment newAppointment4 = Appointment.bookAppointment("Elina","Joy Nathon","271-342-3423",dateFormat.format(createdDate), appointmentDate, appointmentTime,"scheduled",8);
-
-        // Add new appointment
         apptSystem.addNewAppointment(newAppointment1);
         apptSystem.addNewAppointment(newAppointment2);
         apptSystem.addNewAppointment(newAppointment3);
         apptSystem.addNewAppointment(newAppointment4);
-
-        // Remove an appointment
         apptSystem.deleteAppointment(newAppointment1);
-
-        // Update an appointment
-
-
-        // Print out the appointment list
         apptSystem.printAppointmentList();
+
+        while(true){
+            int option = 1;
+            switch (option){
+                case 1:
+                    // Add new appointment
+                    System.out.println("Add Appointment");
+                    break;
+                case 2:
+                    // Update an appointment
+                    System.out.println("Update Appointment");
+                    break;
+                case 3:
+                    // Remove an appointment
+                    System.out.println("Delete an Appointment");
+                    break;
+                case 4:
+                    // Print out the appointment list
+                    System.out.println("Print out all Appointment");
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     public static void startMessage(){
         LocalDateTime dateObj = LocalDateTime.now();
@@ -58,5 +77,6 @@ public class Main {
         System.out.println("2:\t Update an Appointment");
         System.out.println("3:\t Remove an Appointment");
         System.out.println("4:\t Print All Appointment");
+
     }
 }
