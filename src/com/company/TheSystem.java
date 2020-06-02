@@ -26,23 +26,15 @@ public class TheSystem {
         return true;
     }
 
-    /**
-     *
-     * @param oldAppointment
-     * @param newAppointment
-     * @return
-     */
-    public boolean updateAppointment(Appointment oldAppointment, Appointment newAppointment){
+
+    public boolean updateAppointmentStatus(Appointment oldAppointment, String statusUpdate){
         int foundPosition = findAppointment(oldAppointment);
         if(foundPosition < 0){
             System.out.println(oldAppointment.getCustomerPhoneNumber()+": Not Found");
             return false;
-        }else if(findAppointment(newAppointment.getCustomerPhoneNumber()) != -1){
-            System.out.println("Appointment with phone number "+newAppointment.getCustomerPhoneNumber()+" already exists. Update not successful");
-            return false;
         }else{
-            this.theAppointment.set(foundPosition, newAppointment);
-            System.out.println(oldAppointment.getCustomerPhoneNumber()+", Replace with: "+newAppointment.getCustomerPhoneNumber());
+            oldAppointment.setAppointmentStatus(statusUpdate);
+            System.out.println("Customer Name: "+oldAppointment.getCustomerName()+"\nPhone Number: "+oldAppointment.getCustomerPhoneNumber()+"\nStatus update to: "+oldAppointment.getAppointmentStatus());
             return true;
         }
     }
