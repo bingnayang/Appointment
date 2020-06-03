@@ -26,15 +26,33 @@ public class TheSystem {
         return true;
     }
 
-
-    public boolean updateAppointmentStatus(Appointment oldAppointment, String statusUpdate){
-        int foundPosition = findAppointment(oldAppointment);
+    /**
+     *
+     * @param phoneNumber
+     * @param statusUpdate
+     * @return
+     */
+    public boolean updateAppointmentStatus(String phoneNumber, String statusUpdate){
+        int foundPosition = findAppointment(phoneNumber);
         if(foundPosition < 0){
-            System.out.println(oldAppointment.getCustomerPhoneNumber()+": Not Found");
+            System.out.println("Update Fail: Phone Number "+phoneNumber+" Not Found");
             return false;
         }else{
-            oldAppointment.setAppointmentStatus(statusUpdate);
-            System.out.println("Customer Name: "+oldAppointment.getCustomerName()+"\nPhone Number: "+oldAppointment.getCustomerPhoneNumber()+"\nStatus update to: "+oldAppointment.getAppointmentStatus());
+            queryAppointment(phoneNumber).setAppointmentStatus(statusUpdate);
+            System.out.println("Customer Name: "+queryAppointment(phoneNumber).getCustomerName()+"\nPhone Number: "+queryAppointment(phoneNumber).getCustomerPhoneNumber()+"\nStatus update to: "+queryAppointment(phoneNumber).getAppointmentStatus());
+            return true;
+        }
+    }
+
+
+    public boolean updateAppointmentNumberOfVisit(String phoneNumber, int numberVisit){
+        int foundPosition = findAppointment(phoneNumber);
+        if(foundPosition < 0){
+            System.out.println("Update Fail: Phone Number "+phoneNumber+" Not Found");
+            return false;
+        }else{
+            queryAppointment(phoneNumber).setNumberOfPeopleVisit(numberVisit);
+            System.out.println("Customer Name: "+queryAppointment(phoneNumber).getCustomerName()+"\nPhone Number: "+queryAppointment(phoneNumber).getCustomerPhoneNumber()+"\nNumber People Visit: "+queryAppointment(phoneNumber).getNumberOfPeopleVisit());
             return true;
         }
     }
@@ -77,7 +95,6 @@ public class TheSystem {
         if (position >= 0) {
             return this.theAppointment.get(position);
         }
-
         return null;
     }
 
