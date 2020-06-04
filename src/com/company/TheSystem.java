@@ -44,7 +44,12 @@ public class TheSystem {
         }
     }
 
-
+    /**
+     *
+     * @param phoneNumber
+     * @param numberVisit
+     * @return
+     */
     public boolean updateAppointmentNumberOfVisit(String phoneNumber, int numberVisit){
         int foundPosition = findAppointment(phoneNumber);
         if(foundPosition < 0){
@@ -120,6 +125,22 @@ public class TheSystem {
             }
         }
         return -1;
+    }
+
+
+    public void printStatusScheduled(){
+        for(int i=0; i<this.theAppointment.size(); i++){
+            if(this.theAppointment.get(i).getAppointmentStatus() == "scheduled"){
+                System.out.println("| Appointment Status: "+theAppointment.get(i).getAppointmentStatus()+
+                        "\n| Customer Name: \t\t\t"+theAppointment.get(i).getCustomerName()+
+                        "\n| Cusomter Phone Number: \t"+theAppointment.get(i).getCustomerPhoneNumber()+
+                        "\n| Number of People Visit: \t"+theAppointment.get(i).getNumberOfPeopleVisit()+
+                        "\n| Appointment Date: \t\t"+theAppointment.get(i).getAppointmentDate()+
+                        "\n| Appointment Time: \t\t"+theAppointment.get(i).getAppointmentTime()+
+                        "\n=============================================" +
+                        "\n| Create By: "+theAppointment.get(i).getSchedulerName()+" @ "+ theAppointment.get(i).getDateCreated());
+            }
+        }
     }
 
     /**

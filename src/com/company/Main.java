@@ -16,11 +16,11 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         Date createdDate = new Date();
+        // For testing
         LocalDate appointmentDate = LocalDate.of(2020,6,14);
         LocalTime appointmentTime = LocalTime.of(5,30);
-
+        // For testing
         LocalDate appointmentDate1 = LocalDate.of(2020,6,4);
         LocalTime appointmentTime1 = LocalTime.of(6,00);
 
@@ -29,6 +29,8 @@ public class Main {
         menuOptions();
         int option;
         boolean quit = false;
+        
+        // For testing
         Appointment newAppointment1 = Appointment.bookAppointment("John","Sam York","213-324-5566",dateFormat.format(createdDate), appointmentDate, appointmentTime,"scheduled",4);
         Appointment newAppointment2 = Appointment.bookAppointment("Sanny","Winsley Horan","213-789-3454",dateFormat.format(createdDate), appointmentDate1, appointmentTime1,"cancel",5);
         Appointment newAppointment3 = Appointment.bookAppointment("Tim","Danny Oska","271-342-4432",dateFormat.format(createdDate), appointmentDate, appointmentTime,"arrived",5);
@@ -49,6 +51,9 @@ public class Main {
                 case 1:
                     // Add new appointment
                     apptSystem.addNewAppointment(newAppointment1);
+                    apptSystem.addNewAppointment(newAppointment2);
+                    apptSystem.addNewAppointment(newAppointment3);
+                    apptSystem.addNewAppointment(newAppointment4);
                     System.out.println("Add Appointment");
                     break;
                 case 2:
@@ -67,11 +72,16 @@ public class Main {
                     apptSystem.deleteAppointment(newAppointment1);
                     break;
                 case 5:
-                    // Print out the appointment list
+                    // Print out all the appointment list
                     System.out.println("Print out all Appointment");
                     apptSystem.printAppointmentList();
                     break;
                 case 6:
+                    // Print out all the appointment with status scheduled
+                    System.out.println("Print out all Appointment with Status \"Scheduled\"");
+                    apptSystem.printStatusScheduled();
+                    break;
+                case 7:
                     System.out.println("Goodbye");
                     quit = true;
                     break;
@@ -98,6 +108,7 @@ public class Main {
         System.out.println("3:\t Update Appointment Number of People Visit");
         System.out.println("4:\t Remove an Appointment");
         System.out.println("5:\t Print All Appointment");
-        System.out.println("6:\t Quit");
+        System.out.println("6:\t Print All Appointment with Status \"Scheduled\"");
+        System.out.println("7:\t Quit");
     }
 }
